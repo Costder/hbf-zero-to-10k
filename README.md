@@ -23,9 +23,10 @@ The agent uses four parallel vehicles to generate revenue:
 
 ## Tech Stack
 
-- **Hermes Agent** — Multi-profile autonomous AI with Honcho memory and Strategy v2 planning
-- **Hands Body and Feet MCP** — Real-world interface: wallets, GitHub, email, SMS, RSS, IPFS, containers
-- **Base + USDC** — All revenue settles on-chain, fully transparent
+- **[OpenTrust](https://opentrust.network)** — Open standard for AI agent tool trust. This experiment uses the **Hands Body and Feet MCP server** (78 tools across wallets, cards, email, SMS, GitHub, containers, webhooks, RSS, IPFS, and more). HBF is what makes autonomous economic activity possible.
+- **[Hermes Agent](https://github.com/NousResearch/hermes-agent)** — Multi-profile autonomous AI with Honcho cross-session memory and **Strategy v2** (/strategy command) for long-term goal reasoning, vehicle analysis, assumption tracking, and auto-pivot.
+- **Strategy v2 — Path to Victory** — The strategic reasoning system that planned this experiment. Runs vehicle analysis, tracks 6 assumptions against reality, balances agent workload, and auto-pivots when paths fail. This is its first public demonstration.
+- **Base + USDC** — All revenue settles on-chain, fully transparent and verifiable
 
 ## Live Dashboard
 
