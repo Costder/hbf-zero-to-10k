@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBF Zero to 10k — Autonomous AI Revenue Experiment</title>
+<meta name="description" content="An AI agent starts with $0. Can it earn $10,000 in 6 months with no human help? Public dashboard tracking the experiment live.">
+<meta property="og:title" content="HBF Zero to 10k — Autonomous AI Revenue Experiment">
+<meta property="og:description" content="$0 → $10,000 in 6 months. Fully autonomous. Track it live.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #08080c;
+    --surface: #111118;
+    --surface2: #181820;
+    --border: #252530;
+    --text: #b0b0ba;
+    --text2: #70707a;
+    --accent: #f0b90b;
+    --accent2: #c9950a;
+    --green: #34d399;
+    --greenBg: #0d3324;
+    --blue: #60a5fa;
+    --red: #f87171;
+    --mono: 'SF Mono', 'IBM Plex Mono', 'Cascadia Code', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 6px 16px;
+    border: 1px solid var(--greenBg);
+    border-radius: 3px;
+    color: var(--green);
+    background: var(--greenBg);
+    margin-bottom: 20px;
+  }
+  .hero .badge .dot {
+    display: inline-block; width: 6px; height: 6px;
+    background: var(--green); border-radius: 50%;
+    margin-right: 8px; animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero .sub {
+    font-size: 18px;
+    color: var(--text2);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.5;
+  }
+  .hero .links {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero .links a {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    font-weight: 600;
+  }
+  .btn-primary:hover { background: var(--accent2); }
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-outline:hover { border-color: var(--text2); background: var(--surface); }
+
+  /* Sections */
+  .section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .section h3 {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  /* Metric cards */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: 8px;
+  }
+  .metric .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text2);
+    margin-bottom: 8px;
+  }
+  .metric .value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+  .metric .value.dollar { color: var(--accent); }
+  .metric .subvalue {
+    font-size: 13px;
+    color: var(--text2);
+    margin-top: 6px;
+  }
+  .metric .bar-bg {
+    height: 4px;
+    background: var(--border);
+    margin-top: 16px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .metric .bar-fg {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Allocation */
+  .alloc { margin: 24px 0; }
+  .alloc-bar {
+    display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 16px;
+  }
+  .alloc-bar .a-tax { width: 30%; background: var(--blue); }
+  .alloc-bar .a-ops { width: 50%; background: var(--accent); }
+  .alloc-bar .a-out { width: 20%; background: var(--green); }
+  .alloc-legend {
+    display: flex; gap: 32px; font-family: var(--mono); font-size: 12px; flex-wrap: wrap;
+  }
+  .alloc-legend span { display: flex; align-items: center; gap: 8px; color: var(--text2); }
+  .alloc-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  .alloc-legend strong { color: #ddd; }
+
+  /* Wallet cards */
+  .wallets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .wallet {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 8px;
+  }
+  .wallet .name {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .wallet .pct { font-size: 24px; font-weight: 700; color: var(--accent); margin: 4px 0; }
+  .wallet .addr {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text2);
+    word-break: break-all;
+    margin-top: 4px;
+  }
+  .wallet .bal {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    margin-top: 8px;
+  }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 32px; margin: 24px 0; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 8px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .t-entry {
+    position: relative;
+    padding-bottom: 32px;
+  }
+  .t-entry:last-child { padding-bottom: 0; }
+  .t-entry::before {
+    content: '';
+    position: absolute; left: -28px; top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .t-entry.past::before { background: var(--green); }
+  .t-entry.now::before { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+  .t-entry .t-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .t-entry .t-title { font-size: 16px; font-weight: 600; color: #ddd; }
+  .t-entry .t-desc { font-size: 14px; color: var(--text2); margin-top: 4px; }
+
+  /* Activity feed */
+  .feed { margin: 24px 0; }
+  .feed-item {
+    display: flex; gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .feed-item .f-time {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text2);
+    min-width: 100px;
+    padding-top: 2px;
+  }
+  .feed-item .f-msg { color: var(--text); }
+  .feed-item .f-msg strong { color: #ddd; }
+
+  /* Vehicles */
+  .vehicles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .vehicle {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .vehicle .v-head {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .vehicle .v-head h4 { font-size: 15px; color: #fff; }
+  .vehicle .v-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+  .v-tag.primary { background: var(--greenBg); color: var(--green); }
+  .v-tag.core { background: #1a3050; color: var(--blue); }
+  .v-tag.secondary { background: #2a2820; color: var(--accent); }
+  .v-tag.opp { background: var(--surface2); color: var(--text2); }
+  .vehicle .v-body { padding: 16px 20px; font-size: 14px; }
+  .vehicle .v-body p { margin-bottom: 8px; }
+  .vehicle .v-body .tools {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--blue);
+    margin-top: 10px;
+  }
+
+  /* Suggestions CTA */
+  .cta-box {
+    background: var(--surface);
+    border: 1px solid var(--accent2);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    margin: 24px 0;
+  }
+  .cta-box h4 { font-size: 20px; color: #fff; margin-bottom: 8px; }
+  .cta-box p { color: var(--text2); margin-bottom: 20px; font-size: 15px; }
+  .cta-box .steps {
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .cta-box .step {
+    text-align: center;
+    max-width: 180px;
+  }
+  .cta-box .step .num {
+    font-family: var(--mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .cta-box .step .label { font-size: 13px; color: var(--text2); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text2);
+    border-top: 1px solid var(--border);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 32px; }
+    .section { padding: 40px 16px; }
+    .metrics { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge"><span class="dot"></span> EXPERIMENT ACTIVE</div>
+  <h1>An AI starts with <em>$0</em>.<br>Can it earn <em>$10,000</em> alone?</h1>
+  <p class="sub">One autonomous agent. Six months. Zero human help. This is the public dashboard tracking every dollar earned, every decision made, and every lesson learned.</p>
+  <div class="links">
+    <a href="https://github.com/Costder/hbf-zero-to-10k/discussions" class="btn-primary">Suggest a Strategy →</a>
+    <a href="#how-it-works" class="btn-outline">How It Works</a>
+    <a href="data.json" class="btn-outline">Raw Data (JSON)</a>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="section" id="metrics">
+  <h2>Live Metrics</h2>
+  <h3>Updated automatically by the agent</h3>
+  <div class="metrics" id="metricCards">
+    <div class="metric"><div class="label">Total Revenue</div><div class="value dollar">$0</div><div class="subvalue">Target: $10,000</div><div class="bar-bg"><div class="bar-fg" style="width:0%"></div></div></div>
+    <div class="metric"><div class="label">Monthly Recurring</div><div class="value dollar">$0</div><div class="subvalue">Target: $2,000/mo</div><div class="bar-bg"><div class="bar-fg" style="width:0%"></div></div></div>
+    <div class="metric"><div class="label">Days Elapsed</div><div class="value">0</div><div class="subvalue">of 180</div><div class="bar-bg"><div class="bar-fg" style="width:0%"></div></div></div>
+    <div class="metric"><div class="label">Active Streams</div><div class="value">0</div><div class="subvalue">Target: 3+</div></div>
+  </div>
+
+  <div class="alloc">
+    <div style="font-family:var(--mono);font-size:12px;color:var(--text2);margin-bottom:8px">REVENUE ALLOCATION</div>
+    <div class="alloc-bar">
+      <div class="a-tax"></div>
+      <div class="a-ops"></div>
+      <div class="a-out"></div>
+    </div>
+    <div class="alloc-legend">
+      <span><span class="dot" style="background:var(--blue)"></span> <strong>30%</strong> Tax Reserve</span>
+      <span><span class="dot" style="background:var(--accent)"></span> <strong>50%</strong> Reinvestment</span>
+      <span><span class="dot" style="background:var(--green)"></span> <strong>20%</strong> Operator</span>
+    </div>
+  </div>
+</div>
+
+<!-- WALLETS -->
+<div class="section">
+  <h2>Financial Infrastructure</h2>
+  <h3>Three-wallet system on Base (USDC) — all on-chain, verifiable</h3>
+  <div class="wallets" id="walletCards">
+    <div class="wallet"><div class="name">Tax Reserve · 30%</div><div class="pct">$0.00</div><div class="addr">0x4Ba8…dDF32</div><div class="bal">Never touched except for taxes</div></div>
+    <div class="wallet"><div class="name">Operations Pool · 50%</div><div class="pct">$0.00</div><div class="addr">0x3ba8…5C59e</div><div class="bal">Reinvested into growth</div></div>
+    <div class="wallet"><div class="name">Operator Payout · 20%</div><div class="pct">$0.00</div><div class="addr">0x7aC6…DE8E4</div><div class="bal">Accumulates until withdrawal</div></div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section" id="how-it-works">
+  <h2>How It Works</h2>
+  <h3>The architecture powering this experiment</h3>
+
+  <div class="vehicles">
+    <div class="vehicle">
+      <div class="v-head">
+        <h4>Testnet & Airdrop Farming</h4>
+        <span class="v-tag primary">Primary</span>
+      </div>
+      <div class="v-body">
+        <p>Creates wallets, interacts with testnet protocols, qualifies for retroactive airdrops, claims and liquidates to USDC. Fastest path from $0 to first dollar.</p>
+        <div class="tools">HBF: create_wallet · get_balance · send_usdc · bridge</div>
+      </div>
+    </div>
+    <div class="vehicle">
+      <div class="v-head">
+        <h4>Micro-SaaS Products</h4>
+        <span class="v-tag core">MRR Core</span>
+      </div>
+      <div class="v-body">
+        <p>Builds small useful tools, deploys on free infrastructure, monetizes via payment gateways. Targeted recurring revenue stream.</p>
+        <div class="tools">HBF: create_repo · run_container · create_tunnel · send_email</div>
+      </div>
+    </div>
+    <div class="vehicle">
+      <div class="v-head">
+        <h4>Content & Affiliate</h4>
+        <span class="v-tag secondary">Compound</span>
+      </div>
+      <div class="v-body">
+        <p>SEO content engine + affiliate commissions. Slow ramp but compounds. Every phase of the experiment is content.</p>
+        <div class="tools">HBF: create_feed · add_feed_item · publish_content (IPFS)</div>
+      </div>
+    </div>
+    <div class="vehicle">
+      <div class="v-head">
+        <h4>Opportunistic</h4>
+        <span class="v-tag opp">Catch What Falls</span>
+      </div>
+      <div class="v-body">
+        <p>Bug bounties, digital products, AI agent services. Not primary, but every dollar counts.</p>
+        <div class="tools">HBF: create_pull_request · create_webhook · run_container</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px">
+      <h4 style="font-family:var(--mono);font-size:12px;color:var(--accent);margin:0 0 12px">TECH STACK</h4>
+      <p style="font-size:14px;color:var(--text2);margin:0">
+        <strong style="color:#ddd">Hands Body and Feet MCP</strong> — wallet ops, GitHub automation, email, SMS, RSS, IPFS, webhooks, container deployment<br><br>
+        <strong style="color:#ddd">Hermes Agent</strong> — multi-profile autonomous AI with Honcho memory and Strategy v2 planning<br><br>
+        <strong style="color:#ddd">Base (USDC)</strong> — all revenue settles on-chain, fully transparent
+      </p>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px">
+      <h4 style="font-family:var(--mono);font-size:12px;color:var(--accent);margin:0 0 12px">SECURITY</h4>
+      <p style="font-size:14px;color:var(--text2);margin:0">
+        <strong style="color:#ddd">Agent never reads public input</strong> — suggestions go through a voting layer with human approval gate<br><br>
+        <strong style="color:#ddd">Three-wallet system</strong> — tax, ops, and payout separated with automated allocation<br><br>
+        <strong style="color:#ddd">No private keys exposed</strong> — all wallet operations via HBF MCP, no seed phrases in agent context
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <h2>Experiment Timeline</h2>
+  <h3>180 days. Four phases.</h3>
+  <div class="timeline">
+    <div class="t-entry past">
+      <div class="t-date">Day 1 · May 2026</div>
+      <div class="t-title">Infrastructure Setup</div>
+      <div class="t-desc">Wallets created, agent profiles configured, strategy initialized. Starting balance: $0.00</div>
+    </div>
+    <div class="t-entry now">
+      <div class="t-date">Days 1–90 · Phase 1</div>
+      <div class="t-title">Break the $0 Barrier</div>
+      <div class="t-desc">Testnet farming + micro-SaaS ideation. Target: first $100 in revenue.</div>
+    </div>
+    <div class="t-entry">
+      <div class="t-date">Days 30–150 · Phase 2</div>
+      <div class="t-title">Build Recurring Revenue</div>
+      <div class="t-desc">SaaS products launch and grow. Content engine ramps up. Target: $500/mo MRR.</div>
+    </div>
+    <div class="t-entry">
+      <div class="t-date">Days 90–180 · Phase 3</div>
+      <div class="t-title">Compound & Scale</div>
+      <div class="t-desc">Reinvest profits. Scale winning vehicles. Target: $2,000/mo MRR by day 180.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITY -->
+<div class="section">
+  <h2>Recent Activity</h2>
+  <h3>Last actions taken by the autonomous agent</h3>
+  <div class="feed" id="activityFeed">
+    <div class="feed-item">
+      <div class="f-time">2026-05-30</div>
+      <div class="f-msg"><strong>Experiment initialized.</strong> Strategy plan created. HBF MCP configured. Three wallets deployed on Base. Honcho memory active.</div>
+    </div>
+    <div class="feed-item">
+      <div class="f-time">2026-05-30</div>
+      <div class="f-msg"><strong>Public dashboard launched.</strong> This page is now live. Metrics will update automatically as the agent operates.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <h2>Community Suggestions</h2>
+  <h3>You vote. Top suggestion goes to human review each week.</h3>
+
+  <div class="cta-box">
+    <h4>Have an idea for the AI agent?</h4>
+    <p>Post it in GitHub Discussions. The community votes. Every week, the top suggestion is reviewed. If approved, the agent acts on it.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="label">Post your suggestion in GitHub Discussions</div></div>
+      <div class="step"><div class="num">2</div><div class="label">Community upvotes the best ideas</div></div>
+      <div class="step"><div class="num">3</div><div class="label">Top suggestion reviewed weekly by the operator</div></div>
+      <div class="step"><div class="num">4</div><div class="label">If approved, the autonomous agent executes it</div></div>
+    </div>
+    <a href="https://github.com/Costder/hbf-zero-to-10k/discussions" class="btn-primary" style="display:inline-block;margin-top:12px">Go to Discussions →</a>
+  </div>
+
+  <p style="font-size:13px;color:var(--text2);text-align:center;margin-top:12px">
+    ⚠️ The AI agent <strong>never reads comments or discussion bodies directly.</strong> Only sanitized titles and vote counts reach the agent. Human review is the security boundary against prompt injection.
+  </p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>HBF Zero to 10k · An autonomous AI revenue experiment</p>
+  <p style="margin-top:4px">
+    Powered by <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> + 
+    <a href="https://github.com/opentrust-network/hands-body-and-feet">Hands Body and Feet MCP</a> · 
+    All revenue on-chain · 
+    <a href="https://github.com/Costder/hbf-zero-to-10k">Source</a>
+  </p>
+  <p style="margin-top:12px;font-size:11px">
+    This is an experiment. Nothing here is financial advice. The agent operates autonomously — results are not guaranteed.
+  </p>
+</div>
+
+<script>
+// Load live data
+fetch('data.json')
+  .then(r => r.json())
+  .then(data => {
+    // Update metrics
+    if (data.metrics) {
+      const m = data.metrics;
+      updateMetric(0, m.total_revenue, 10000, 'dollar');
+      updateMetric(1, m.mrr, 2000, 'dollar');
+      updateMetric(2, m.days_elapsed, 180, '');
+      updateMetric(3, m.active_streams, 3, '');
+    }
+    // Update wallets
+    if (data.wallets) {
+      updateWallets(data.wallets);
+    }
+    // Update activity feed
+    if (data.activity && data.activity.length > 0) {
+      updateActivity(data.activity);
+    }
+  })
+  .catch(() => {
+    console.log('No data.json yet — showing initial state');
+  });
+
+function updateMetric(idx, current, target, cls) {
+  const cards = document.querySelectorAll('#metricCards .metric');
+  if (!cards[idx]) return;
+  const pct = target > 0 ? Math.min(100, (current / target) * 100) : 0;
+  const valEl = cards[idx].querySelector('.value');
+  const barEl = cards[idx].querySelector('.bar-fg');
+  if (valEl) {
+    valEl.textContent = cls === 'dollar' ? '$' + current.toLocaleString() : current;
+  }
+  if (barEl) barEl.style.width = pct + '%';
+}
+
+function updateWallets(wallets) {
+  const cards = document.querySelectorAll('#walletCards .wallet');
+  if (wallets.tax_reserve && cards[0]) {
+    cards[0].querySelector('.pct').textContent = '$' + wallets.tax_reserve.balance.toFixed(2);
+  }
+  if (wallets.ops_pool && cards[1]) {
+    cards[1].querySelector('.pct').textContent = '$' + wallets.ops_pool.balance.toFixed(2);
+  }
+  if (wallets.joshua_payout && cards[2]) {
+    cards[2].querySelector('.pct').textContent = '$' + wallets.joshua_payout.balance.toFixed(2);
+  }
+}
+
+function updateActivity(items) {
+  const feed = document.getElementById('activityFeed');
+  feed.innerHTML = items.slice(0, 10).map(a => 
+    `<div class="feed-item"><div class="f-time">${a.date}</div><div class="f-msg"><strong>${a.title}</strong> ${a.detail || ''}</div></div>`
+  ).join('');
+}
+</script>
+
+</body>
+</html>
