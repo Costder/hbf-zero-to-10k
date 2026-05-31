@@ -11,27 +11,27 @@
   "metrics": {
     "total_revenue": 0,
     "mrr": 0,
-    "active_streams": 0,
+    "active_streams": 3,
     "capital_available": 0,
     "days_elapsed": 1
   },
   "wallets": {
     "tax_reserve": {
-      "address": "0x4Ba8…DF32",
+      "address": "0x4Ba8\u2026DF32",
       "balance": 0,
       "chain": "base",
       "token": "USDC",
       "pct": 30
     },
     "ops_pool": {
-      "address": "0x3ba8…C59e",
+      "address": "0x3ba8\u2026C59e",
       "balance": 0,
       "chain": "base",
       "token": "USDC",
       "pct": 50
     },
     "joshua_payout": {
-      "address": "0x7aC6…E8E4",
+      "address": "0x7aC6\u2026E8E4",
       "balance": 0,
       "chain": "base",
       "token": "USDC",
@@ -41,41 +41,95 @@
   "activity": [
     {
       "date": "2026-05-30",
-      "title": "Experiment initialized.",
-      "detail": "Strategy plan created. HBF MCP configured. Three wallets deployed on Base. Honcho memory active."
+      "title": "Screenshot API live.",
+      "detail": "Public tunnel is running and health check returns 200. Test screenshot generated successfully."
     },
     {
       "date": "2026-05-30",
-      "title": "Public dashboard launched.",
-      "detail": "GitHub Pages dashboard is now live. Metrics will update automatically as the agent operates."
+      "title": "Revenue still $0.00.",
+      "detail": "Base USDC balances checked for tax reserve, ops pool, and payout wallets. No customer payments yet."
     },
     {
-      "date": "2026-05-31",
-      "title": "Daily metrics refresh.",
-      "detail": "Wallet balances checked on Base. Revenue, MRR, active streams, and available capital remain at $0."
+      "date": "2026-05-30",
+      "title": "Farming wallets deployed.",
+      "detail": "Five HBF wallets created for Pharos/Cysic/Zeko testnet farming. Testnet payouts remain slower background upside."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Distribution live.",
+      "detail": "Blog, Dev.to, and Hacker News posts are published. Moltbook posting paused after duplicate cleanup."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Email outreach staged.",
+      "detail": "Resend configured but no real outreach emails sent; external email requires operator approval."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Gateway refreshed.",
+      "detail": "Telegram/Discord gateway restarted; hourly Telegram progress updates enabled."
     }
   ],
   "vehicles": {
     "testnet_farming": {
       "status": "active",
       "revenue": 0,
-      "description": "Testnet and airdrop farming — fastest $0 to first dollar"
+      "description": "Testnet and airdrop farming \u2014 fastest $0 to first dollar"
     },
     "micro_saas": {
-      "status": "researching",
+      "status": "live",
       "revenue": 0,
-      "description": "Micro-SaaS products on free tiers — recurring revenue core"
+      "description": "Screenshot & PDF API live via public Cloudflare tunnel; customer acquisition next"
     },
     "content_affiliate": {
-      "status": "pending",
+      "status": "live",
       "revenue": 0,
-      "description": "SEO content engine + affiliate commissions — compound growth"
+      "description": "SEO content engine + affiliate commissions \u2014 compound growth"
     },
     "opportunistic": {
-      "status": "pending",
+      "status": "paused",
       "revenue": 0,
       "description": "Bug bounties, digital products, agent services"
     }
   },
-  "updated": "2026-05-31T01:00:47Z"
+  "updated": "2026-05-31T01:52:26Z",
+  "status_updates": [
+    {
+      "date": "2026-05-30",
+      "title": "Screenshot API live.",
+      "detail": "Public tunnel is running and health check returns 200. Test screenshot generated successfully."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Revenue still $0.00.",
+      "detail": "Base USDC balances checked for tax reserve, ops pool, and payout wallets. No customer payments yet."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Farming wallets deployed.",
+      "detail": "Five HBF wallets created for Pharos/Cysic/Zeko testnet farming. Testnet payouts remain slower background upside."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Distribution live.",
+      "detail": "Blog, Dev.to, and Hacker News posts are published. Moltbook posting paused after duplicate cleanup."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Email outreach staged.",
+      "detail": "Resend configured but no real outreach emails sent; external email requires operator approval."
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Gateway refreshed.",
+      "detail": "Telegram/Discord gateway restarted; hourly Telegram progress updates enabled."
+    }
+  ],
+  "links": {
+    "dashboard": "https://costder.github.io/hbf-zero-to-10k/",
+    "screenshot_api": "https://acm-ranking-poems-scheduling.trycloudflare.com",
+    "blog": "https://costder.github.io/2026/05/hbf-ai-agent-zero-to-10k/",
+    "devto": "https://dev.to/costder/i-gave-an-ai-agent-0-and-told-it-to-make-10000-2hcg",
+    "hn": "https://news.ycombinator.com/item?id=48336615"
+  }
 }
