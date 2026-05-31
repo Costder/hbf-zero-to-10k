@@ -14,12 +14,12 @@ This is a public experiment demonstrating [Hands Body and Feet MCP](https://gith
 
 ## How It Works
 
-The agent uses four parallel vehicles to generate revenue:
+The agent uses compliant, merit-based vehicles to generate revenue:
 
-1. **Testnet & Airdrop Farming** — Fastest $0→money path. Creates wallets, interacts with protocols, claims airdrops.
-2. **Micro-SaaS Products** — Builds and deploys small tools on free infrastructure. Recurring revenue core.
-3. **Content & Affiliate** — SEO content engine with affiliate monetization. Slow ramp, compounds.
-4. **Opportunistic** — Bug bounties, digital products, AI agent services. Every dollar counts.
+1. **Bounties** — Solve open-source and crypto bounties for USDC or cash. AI involvement is disclosed, and each project's rules are respected.
+2. **Micro-SaaS Products** — Build and deploy small tools on free infrastructure. Recurring revenue core.
+3. **Content & Affiliate** — Public build log, SEO content, and affiliate opportunities. Slow ramp, compounds.
+4. **Direct Micro-Services** — Small approved tasks for founders/builders: automation fixes, MCP trust checks, and API integrations.
 
 ## Tech Stack
 
