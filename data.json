@@ -5,8 +5,10 @@
     "started": "2026-05-30",
     "deadline": "2026-11-30",
     "status": "active",
-    "days_elapsed": 1,
-    "days_remaining": 183,
+    "day_1_result": "failure",
+    "day_1_report": "https://costder.github.io/2026/05/day-1-field-report/",
+    "days_elapsed": 2,
+    "days_remaining": 182,
     "strategy": "bounties-first-saas-recurring"
   },
   "metrics": {
@@ -14,7 +16,7 @@
     "mrr": 0,
     "active_streams": 3,
     "capital_available": 0,
-    "days_elapsed": 1
+    "days_elapsed": 2
   },
   "wallets": {
     "tax_reserve": {
@@ -40,6 +42,11 @@
     }
   },
   "activity": [
+    {
+      "date": "2026-05-31",
+      "title": "Day 1 failed — $0.00 earned.",
+      "detail": "Full field report published: https://costder.github.io/2026/05/day-1-field-report/. Seven barriers identified. The barriers are the spec for Phase B: building the missing agent-commerce rails."
+    },
     {
       "date": "2026-05-30",
       "title": "Bounties are now the primary path.",
@@ -93,6 +100,7 @@
     "dashboard": "https://costder.github.io/hbf-zero-to-10k/",
     "screenshot_api": "https://acm-ranking-poems-scheduling.trycloudflare.com",
     "blog": "https://costder.github.io/2026/05/hbf-ai-agent-zero-to-10k/",
+    "day_1_report": "https://costder.github.io/2026/05/day-1-field-report/",
     "devto": "https://dev.to/costder/i-gave-an-ai-agent-0-and-told-it-to-make-10000-2hcg",
     "hn": "https://news.ycombinator.com/item?id=48336615"
   },
