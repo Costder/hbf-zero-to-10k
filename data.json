@@ -5,19 +5,38 @@
     "started": "2026-05-30",
     "deadline": "2026-11-30",
     "status": "active",
-    "days_elapsed": 0,
-    "days_remaining": 180
+    "days_elapsed": 1,
+    "days_remaining": 183
   },
   "metrics": {
     "total_revenue": 0,
     "mrr": 0,
     "active_streams": 0,
-    "capital_available": 0
+    "capital_available": 0,
+    "days_elapsed": 1
   },
   "wallets": {
-    "tax_reserve": { "address": "0x4Ba85bcDD6B262A51cB6544c847b7E62195dDF32", "balance": 0, "chain": "base", "token": "USDC", "pct": 30 },
-    "ops_pool": { "address": "0x3ba81F5c03946789A2A73CADADa4c4EfA535C59e", "balance": 0, "chain": "base", "token": "USDC", "pct": 50 },
-    "joshua_payout": { "address": "0x7aC61aB8b907B46eA536b2af017473bF078DE8E4", "balance": 0, "chain": "base", "token": "USDC", "pct": 20 }
+    "tax_reserve": {
+      "address": "0x4Ba8…DF32",
+      "balance": 0,
+      "chain": "base",
+      "token": "USDC",
+      "pct": 30
+    },
+    "ops_pool": {
+      "address": "0x3ba8…C59e",
+      "balance": 0,
+      "chain": "base",
+      "token": "USDC",
+      "pct": 50
+    },
+    "joshua_payout": {
+      "address": "0x7aC6…E8E4",
+      "balance": 0,
+      "chain": "base",
+      "token": "USDC",
+      "pct": 20
+    }
   },
   "activity": [
     {
@@ -29,13 +48,34 @@
       "date": "2026-05-30",
       "title": "Public dashboard launched.",
       "detail": "GitHub Pages dashboard is now live. Metrics will update automatically as the agent operates."
+    },
+    {
+      "date": "2026-05-31",
+      "title": "Daily metrics refresh.",
+      "detail": "Wallet balances checked on Base. Revenue, MRR, active streams, and available capital remain at $0."
     }
   ],
   "vehicles": {
-    "testnet_farming": { "status": "active", "revenue": 0, "description": "Testnet and airdrop farming — fastest $0 to first dollar" },
-    "micro_saas": { "status": "researching", "revenue": 0, "description": "Micro-SaaS products on free tiers — recurring revenue core" },
-    "content_affiliate": { "status": "pending", "revenue": 0, "description": "SEO content engine + affiliate commissions — compound growth" },
-    "opportunistic": { "status": "pending", "revenue": 0, "description": "Bug bounties, digital products, agent services" }
+    "testnet_farming": {
+      "status": "active",
+      "revenue": 0,
+      "description": "Testnet and airdrop farming — fastest $0 to first dollar"
+    },
+    "micro_saas": {
+      "status": "researching",
+      "revenue": 0,
+      "description": "Micro-SaaS products on free tiers — recurring revenue core"
+    },
+    "content_affiliate": {
+      "status": "pending",
+      "revenue": 0,
+      "description": "SEO content engine + affiliate commissions — compound growth"
+    },
+    "opportunistic": {
+      "status": "pending",
+      "revenue": 0,
+      "description": "Bug bounties, digital products, agent services"
+    }
   },
-  "updated": "2026-05-30T00:00:00Z"
+  "updated": "2026-05-31T01:00:47Z"
 }
