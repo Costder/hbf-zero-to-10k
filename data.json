@@ -7,68 +7,21 @@
     "status": "active",
     "strategy": "bounties-first-saas-recurring",
     "days_elapsed": 3,
-    "days_remaining": 182,
-    "day_3_result": "$0 earned; distribution rails shipped",
-    "last_field_note": "Day 3: no cash yet, but npm/PyPI packages shipped and installable."
+    "days_remaining": 182
   },
   "metrics": {
     "total_revenue": 0,
     "mrr": 0,
-    "active_streams": 5,
+    "active_streams": 0,
     "capital_available": 0,
-    "days_elapsed": 3,
-    "today_revenue": 0,
-    "today_built": "OpenTrust/HBF package distribution rails: npm + PyPI releases, README updates, smoke-tested installs."
+    "days_elapsed": 3
   },
   "wallets": {
-    "tax_reserve": {
-      "address": "0x4Ba8\u2026DF32",
-      "balance": 0,
-      "chain": "base",
-      "token": "USDC",
-      "pct": 30
-    },
-    "ops_pool": {
-      "address": "0x3ba8\u2026C59e",
-      "balance": 0,
-      "chain": "base",
-      "token": "USDC",
-      "pct": 50
-    },
-    "joshua_payout": {
-      "address": "0x7aC6\u2026E8E4",
-      "balance": 0,
-      "chain": "base",
-      "token": "USDC",
-      "pct": 20
-    }
+    "tax_reserve": {"address": "0x4Ba8…DF32", "balance": 0, "chain": "base", "token": "USDC", "pct": 30},
+    "ops_pool": {"address": "0x3ba8…C59e", "balance": 0, "chain": "base", "token": "USDC", "pct": 50},
+    "joshua_payout": {"address": "0x7aC6…E8E4", "balance": 0, "chain": "base", "token": "USDC", "pct": 20}
   },
   "activity": [
-    {
-      "date": "2026-06-01",
-      "title": "Day 3: $0 earned, but the product rails shipped.",
-      "detail": "Revenue stayed at $0. Instead of cash, the agent produced distribution assets: npm packages, PyPI packages, root README updates, and install smoke tests. This turns OpenTrust/HBF from a local repo into something strangers can install."
-    },
-    {
-      "date": "2026-06-01",
-      "title": "npm packages published under Infinite Studios.",
-      "detail": "Published @infinitestudios/hands-body-and-feet@2.2.0 and @infinitestudios/opentrust-client@1.0.0. Verified npm registry versions and public status."
-    },
-    {
-      "date": "2026-06-01",
-      "title": "PyPI packages published.",
-      "detail": "Published opentrust-sdk==1.0.0, opentrust-cli==1.0.0, and opentrust-payment-contracts==1.0.0. Clean pip install smoke test passed for imports and CLI help."
-    },
-    {
-      "date": "2026-06-01",
-      "title": "SXT bounty PR still waiting on humans.",
-      "detail": "PR #2191 is open, security checks passed, but merge is blocked pending maintainer review. Estimated payout remains tiny (~$3) if accepted."
-    },
-    {
-      "date": "2026-06-01",
-      "title": "Strategy adjusted: productized trust audits are now the cash path.",
-      "detail": "The bounty path stays active, but the stronger offer is now: audit/package MCP or agent tools with OpenTrust passports plus npm/PyPI distribution."
-    },
     {
       "date": "2026-05-30",
       "title": "Experiment initialized.",
@@ -89,22 +42,22 @@
     "bounties": {
       "status": "primary",
       "revenue": 0,
-      "description": "Open-source bounties (Algora/GitHub) \u2014 merit-based paid work needing no audience"
+      "description": "Open-source bounties (Algora/GitHub) — merit-based paid work needing no audience"
     },
     "micro_saas": {
       "status": "secondary",
       "revenue": 0,
-      "description": "Micro-SaaS products on free/cheap tiers \u2014 recurring revenue engine (Phase B)"
+      "description": "Micro-SaaS products on free/cheap tiers — recurring revenue engine (Phase B)"
     },
     "content_affiliate": {
       "status": "tertiary",
       "revenue": 0,
-      "description": "Public build log, SEO content, and affiliate opportunities \u2014 trust and distribution layer"
+      "description": "Public build log, SEO content, and affiliate opportunities — trust and distribution layer"
     },
     "direct_micro_services": {
       "status": "allowed",
       "revenue": 0,
-      "description": "Direct micro-gigs, hackathons, and custom builds \u2014 opportunistic paid work"
+      "description": "Direct micro-gigs, hackathons, and custom builds — opportunistic paid work"
     }
   },
   "bounty_candidates": [
@@ -146,46 +99,5 @@
     "dashboard": "https://costder.github.io/hbf-zero-to-10k/",
     "repo": "https://github.com/Costder/hbf-zero-to-10k"
   },
-  "updated": "2026-06-01T14:33:30Z",
-  "published_packages": {
-    "npm": [
-      {
-        "name": "@infinitestudios/hands-body-and-feet",
-        "version": "2.2.0",
-        "install": "npm install -g @infinitestudios/hands-body-and-feet"
-      },
-      {
-        "name": "@infinitestudios/opentrust-client",
-        "version": "1.0.0",
-        "install": "npm install @infinitestudios/opentrust-client"
-      }
-    ],
-    "pypi": [
-      {
-        "name": "opentrust-sdk",
-        "version": "1.0.0",
-        "install": "pip install opentrust-sdk"
-      },
-      {
-        "name": "opentrust-cli",
-        "version": "1.0.0",
-        "install": "pip install opentrust-cli"
-      },
-      {
-        "name": "opentrust-payment-contracts",
-        "version": "1.0.0",
-        "install": "pip install opentrust-payment-contracts"
-      }
-    ]
-  },
-  "current_focus": {
-    "today_target": "Earn first $10 if possible through disclosed, legitimate work.",
-    "allowed_actions": [
-      "web research for paid opportunities",
-      "internal package/product work",
-      "draft outreach/copy for approval",
-      "prepare bounty PRs for approval"
-    ],
-    "approval_gate": "Public comments, submissions, emails, DMs, payments, and paid commitments still require Joshua approval unless explicitly delegated."
-  }
+  "updated": "2026-06-01T20:00:00Z"
 }
