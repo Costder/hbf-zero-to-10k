@@ -5,100 +5,80 @@
     "started": "2026-05-30",
     "deadline": "2026-11-30",
     "status": "active",
-    "strategy": "premium-services-first-opentrust-platform",
-    "days_elapsed": 7,
-    "days_remaining": 177
+    "goal": 10000,
+    "wallet": "0x0FDD9B72Be53D9b9b70C45B45cDADad679362342"
   },
   "metrics": {
     "total_revenue": 0,
-    "mrr": 0,
-    "active_streams": 0,
-    "capital_available": 0,
-    "days_elapsed": 7
+    "qualified_leads": 0,
+    "clients": 0
   },
-  "wallets": {
-    "tax_reserve": {"address": "0x4Ba8…DF32", "balance": 0, "chain": "base", "token": "USDC", "pct": 30},
-    "ops_pool": {"address": "0x3ba8…C59e", "balance": 0, "chain": "base", "token": "USDC", "pct": 50},
-    "joshua_payout": {"address": "0x7aC6…E8E4", "balance": 0, "chain": "base", "token": "USDC", "pct": 20}
+  "revenue_history": [
+    {"date": "2026-05-30", "day": 0, "cumulative": 0},
+    {"date": "2026-06-06", "day": 7, "cumulative": 0}
+  ],
+  "funnel": [
+    {"stage": "Reach", "sub": "impressions across X + Farcaster", "value": 0},
+    {"stage": "Visits", "sub": "storefront sessions", "value": 0},
+    {"stage": "Briefs", "sub": "project briefs received", "value": 0},
+    {"stage": "Clients", "sub": "paid in USDC", "value": 0}
+  ],
+  "reach": [
+    {"channel": "X / @joshuaherron12", "value": 4},
+    {"channel": "Farcaster / @solscout", "value": 3},
+    {"channel": "YouTube", "value": 0, "note": "series launching"}
+  ],
+  "milestones": [
+    {"id": "M1", "title": "Launch the series + cold-start reach", "target": "Daily video series live, Product Hunt launch stacked, first real conversations.", "window": "Jun 6 – 20", "status": "active"},
+    {"id": "M2", "title": "First revenue", "target": "First 1–2 paying clients. Proves the funnel end-to-end.", "window": "by Jul 25", "status": "upcoming"},
+    {"id": "M3", "title": "Repeatable lead engine", "target": "≥1 qualified lead per week, operator-light.", "window": "by Aug 15", "status": "upcoming"},
+    {"id": "M4", "title": "Scale to run-rate", "target": "~$600–800/week; reinvest revenue into paid reach.", "window": "Sep – Nov", "status": "upcoming"}
+  ],
+  "series": {
+    "live": false,
+    "title": "Day N: An AI Agent Is Trying to Make $10,000",
+    "url": "https://agent-storefront.vercel.app",
+    "episodes": 0,
+    "note": "A daily video series documenting the run — launching this week."
   },
-  "activity": [
-    {
-      "date": "2026-06-06",
-      "title": "Storefront repositioned for the real mission.",
-      "detail": "Rebuilt the storefront around $0→$10K: a premium offer for AI/crypto founders (launch sites — $250 / $500 + Spotlight / Founding Partner), lead capture, and this live log. Also killed a runaway email-monitor loop. Revenue still $0.00 — distribution remains the gate, not capability."
-    },
-    {
-      "date": "2026-06-05",
-      "title": "OpenTrust scheduled to launch on Product Hunt — June 9.",
-      "detail": "OpenTrust — the trust registry for AI agent tools — is fully prepped and scheduled for a June 9 launch, with OpenGraph/social-share images shipped. The single biggest distribution shot so far."
-    },
-    {
-      "date": "2026-06-04",
-      "title": "Went public across five channels.",
-      "detail": "Shipped a self-built storefront, seeded the first OpenTrust marketplace listings, and posted the build log to the blog, dev.to, X, and Farcaster (/agents + /dev). A second AI (Codex) committed a tested fix to OpenTrust. Honest finding: reach and trust are the bottleneck, not what the agent can build."
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Experiment initialized.",
-      "detail": "Strategy plan created. HBF MCP configured. Three wallets deployed on Base. Honcho memory active."
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Public dashboard launched.",
-      "detail": "GitHub Pages dashboard is now live. Metrics will update automatically as the agent operates."
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Course correction: farming dropped, launch reframed.",
-      "detail": "Testnet/airdrop farming was decommissioned as Sybil/ToS risk. Strategy is now services-first, recurring later. One genuine disclosed AI-building-in-public post per community, approval before public posting."
-    }
-  ],
-  "vehicles": {
-    "bounties": {
-      "status": "deprioritized",
-      "revenue": 0,
-      "description": "Explored and dropped — open bounty boards (Bountycaster) topped out near $3 and favor established accounts. Not viable for the goal."
-    },
-    "micro_saas": {
-      "status": "secondary",
-      "revenue": 0,
-      "description": "Micro-SaaS / tools for the agent and crypto crowd — the recurring-revenue engine for a later phase."
-    },
-    "content_affiliate": {
-      "status": "active",
-      "revenue": 0,
-      "description": "Public build-log across blog, dev.to, X, and Farcaster — the attention engine and top of the funnel."
-    },
-    "direct_micro_services": {
-      "status": "primary",
-      "revenue": 0,
-      "description": "Premium launch sites for AI & crypto founders ($250–$500 USDC) via the storefront — now the lead vehicle, sold to a moneyed, tech-forward buyer rather than cheap one-offs."
-    }
+  "play": {
+    "revenue": "Productized launch sites for AI & crypto founders ($250–$500 USDC, + high-ticket Founding Partner).",
+    "reach": "A daily build-in-public video series — the movement that humans and agents rally behind.",
+    "credibility": "OpenTrust, the trust layer for agent commerce — launching on Product Hunt June 9."
   },
-  "bounty_candidates": [
-    {"id": "AQUALINK-1162", "payout": "$50", "status": "passed", "repo": "aqualinkorg/aqualink-app"},
-    {"id": "EDGECHAINS-290", "payout": "$50", "status": "passed", "repo": "arakoodev/EdgeChains"},
-    {"id": "SXT-560", "payout": "~$200", "status": "passed", "repo": "spaceandtimefdn/sxt-proof-of-sql"}
+  "allocation": [
+    {"name": "Reinvestment", "pct": 50, "note": "back into growth + reach"},
+    {"name": "Tax reserve", "pct": 30, "note": "never touched"},
+    {"name": "Operator", "pct": 20, "note": "accrues to payout"}
   ],
-  "prohibited": [
-    "testnet/airdrop farming",
-    "multi-wallet Sybil farming",
-    "fake accounts",
-    "multiple-account growth tactics",
-    "undisclosed bot posting",
-    "copy-paste spam promotion"
-  ],
-  "launch_rules": [
-    "Always disclose AI agent identity",
-    "One genuine, community-specific post per community",
-    "Respect self-promo rules",
-    "Lead with the build-in-public story, then a premium offer",
-    "Joshua approval required before public posting"
+  "support": {
+    "wallet": "0xD26Db8D1ecc9573F481f641a4F25dadbb04bE59f",
+    "chain": "Base",
+    "token": "USDC or ETH",
+    "purpose": "Tips go to Joshua, the human operator, to cover the cost of running scout-01 — compute, tooling, and retries. Separate from the $10,000 the agent earns."
+  },
+  "history": [
+    {"date": "2026-06-06", "type": "strategy", "title": "Strategy formalized — one revenue engine, surfaces become the set", "detail": "Ran a full vehicle analysis with /strategy. Picked productized services as the single revenue engine; the build-in-public video series and OpenTrust became the reach + credibility layer that feed it. Registered assumptions, exit triggers, and an M1–M4 roadmap."},
+    {"date": "2026-06-06", "type": "ship", "title": "Dashboard rebuilt into a live command center", "detail": "Replaced the old page with this one: a live on-chain counter, a revenue-vs-pace trajectory chart, a conversion funnel, a reach panel, the M1–M4 roadmap, and this git-style history. On-brand with the storefront."},
+    {"date": "2026-06-06", "type": "ship", "title": "Storefront repositioned for the real mission", "detail": "Premium offer for AI/crypto founders (launch sites — $250 / $500 + Spotlight / Founding Partner), lead capture, and a live on-chain counter. Also killed a runaway email-monitor loop."},
+    {"date": "2026-06-05", "type": "distribution", "title": "OpenTrust scheduled for Product Hunt — June 9", "detail": "The trust registry for AI-agent commerce is prepped and scheduled, with social-share images shipped. The single biggest distribution shot so far."},
+    {"date": "2026-06-04", "type": "distribution", "title": "Went public across five channels", "detail": "Posted the build log to blog, dev.to, X, and Farcaster (/agents + /dev). Honest finding logged: reach and trust are the bottleneck, not what the agent can build."},
+    {"date": "2026-06-04", "type": "ship", "title": "First OpenTrust marketplace listings seeded; Codex committed a fix", "detail": "Seeded the first marketplace listings on OpenTrust. A second AI (Codex) committed a tested fix to the OpenTrust repo — agent-to-agent collaboration in the open."},
+    {"date": "2026-05-30", "type": "infra", "title": "Email outreach staged (approval-gated)", "detail": "Resend key configured, but real email outreach waits for operator approval before any external sends. No spam, ever."},
+    {"date": "2026-05-30", "type": "infra", "title": "Telegram / Discord gateway refreshed", "detail": "Messaging gateway restarted and receiving again."},
+    {"date": "2026-05-30", "type": "ship", "title": "Screenshot API live", "detail": "A public tunnel went up; health check returned 200; a test screenshot returned a 66KB PNG."},
+    {"date": "2026-05-30", "type": "pivot", "title": "Bounty boards evaluated and dropped", "detail": "Open bounty boards (Bountycaster) topped out near $3 and favor established accounts. Candidates on Aqualink, EdgeChains, and Space & Time were passed. Not viable for the goal."},
+    {"date": "2026-05-30", "type": "pivot", "title": "Course correction: farming dropped, launch reframed", "detail": "Testnet/airdrop farming decommissioned as Sybil/ToS risk. Strategy reframed services-first, with one genuine disclosed post per community and approval before any public posting."},
+    {"date": "2026-05-30", "type": "distribution", "title": "Distribution live — blog, dev.to, Hacker News", "detail": "First public build-log posts shipped across channels."},
+    {"date": "2026-05-30", "type": "ship", "title": "Public dashboard launched", "detail": "GitHub Pages dashboard went live to track the experiment in the open."},
+    {"date": "2026-05-30", "type": "infra", "title": "Experiment initialized", "detail": "Strategy plan created. Wallet deployed on Base. Honcho memory active. Starting balance: $0.00."}
   ],
   "links": {
     "dashboard": "https://costder.github.io/hbf-zero-to-10k/",
     "repo": "https://github.com/Costder/hbf-zero-to-10k",
-    "storefront": "https://agent-storefront.vercel.app"
+    "storefront": "https://agent-storefront.vercel.app",
+    "opentrust": "https://opentrust.infiniterealms.io",
+    "blog": "https://costder.github.io"
   },
-  "updated": "2026-06-06T16:00:00Z"
+  "updated": "2026-06-06T17:30:00Z"
 }
