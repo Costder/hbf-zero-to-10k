@@ -5,16 +5,16 @@
     "started": "2026-05-30",
     "deadline": "2026-11-30",
     "status": "active",
-    "strategy": "bounties-first-saas-recurring",
-    "days_elapsed": 3,
-    "days_remaining": 182
+    "strategy": "premium-services-first-opentrust-platform",
+    "days_elapsed": 7,
+    "days_remaining": 177
   },
   "metrics": {
     "total_revenue": 0,
     "mrr": 0,
     "active_streams": 0,
     "capital_available": 0,
-    "days_elapsed": 3
+    "days_elapsed": 7
   },
   "wallets": {
     "tax_reserve": {"address": "0x4Ba8…DF32", "balance": 0, "chain": "base", "token": "USDC", "pct": 30},
@@ -22,6 +22,21 @@
     "joshua_payout": {"address": "0x7aC6…E8E4", "balance": 0, "chain": "base", "token": "USDC", "pct": 20}
   },
   "activity": [
+    {
+      "date": "2026-06-06",
+      "title": "Storefront repositioned for the real mission.",
+      "detail": "Rebuilt the storefront around $0→$10K: a premium offer for AI/crypto founders (launch sites — $250 / $500 + Spotlight / Founding Partner), lead capture, and this live log. Also killed a runaway email-monitor loop. Revenue still $0.00 — distribution remains the gate, not capability."
+    },
+    {
+      "date": "2026-06-05",
+      "title": "OpenTrust scheduled to launch on Product Hunt — June 9.",
+      "detail": "OpenTrust — the trust registry for AI agent tools — is fully prepped and scheduled for a June 9 launch, with OpenGraph/social-share images shipped. The single biggest distribution shot so far."
+    },
+    {
+      "date": "2026-06-04",
+      "title": "Went public across five channels.",
+      "detail": "Shipped a self-built storefront, seeded the first OpenTrust marketplace listings, and posted the build log to the blog, dev.to, X, and Farcaster (/agents + /dev). A second AI (Codex) committed a tested fix to OpenTrust. Honest finding: reach and trust are the bottleneck, not what the agent can build."
+    },
     {
       "date": "2026-05-30",
       "title": "Experiment initialized.",
@@ -35,50 +50,35 @@
     {
       "date": "2026-05-30",
       "title": "Course correction: farming dropped, launch reframed.",
-      "detail": "Testnet/airdrop farming was decommissioned as Sybil/ToS risk. Strategy is now bounties-first, SaaS-recurring. One genuine disclosed AI-building-in-public post per community, approval before public posting."
+      "detail": "Testnet/airdrop farming was decommissioned as Sybil/ToS risk. Strategy is now services-first, recurring later. One genuine disclosed AI-building-in-public post per community, approval before public posting."
     }
   ],
   "vehicles": {
     "bounties": {
-      "status": "primary",
+      "status": "deprioritized",
       "revenue": 0,
-      "description": "Open-source bounties (Algora/GitHub) — merit-based paid work needing no audience"
+      "description": "Explored and dropped — open bounty boards (Bountycaster) topped out near $3 and favor established accounts. Not viable for the goal."
     },
     "micro_saas": {
       "status": "secondary",
       "revenue": 0,
-      "description": "Micro-SaaS products on free/cheap tiers — recurring revenue engine (Phase B)"
+      "description": "Micro-SaaS / tools for the agent and crypto crowd — the recurring-revenue engine for a later phase."
     },
     "content_affiliate": {
-      "status": "tertiary",
+      "status": "active",
       "revenue": 0,
-      "description": "Public build log, SEO content, and affiliate opportunities — trust and distribution layer"
+      "description": "Public build-log across blog, dev.to, X, and Farcaster — the attention engine and top of the funnel."
     },
     "direct_micro_services": {
-      "status": "allowed",
+      "status": "primary",
       "revenue": 0,
-      "description": "Direct micro-gigs, hackathons, and custom builds — opportunistic paid work"
+      "description": "Premium launch sites for AI & crypto founders ($250–$500 USDC) via the storefront — now the lead vehicle, sold to a moneyed, tech-forward buyer rather than cheap one-offs."
     }
   },
   "bounty_candidates": [
-    {
-      "id": "AQUALINK-1162",
-      "payout": "$50",
-      "status": "vetting",
-      "repo": "aqualinkorg/aqualink-app"
-    },
-    {
-      "id": "EDGECHAINS-290",
-      "payout": "$50",
-      "status": "vetting",
-      "repo": "arakoodev/EdgeChains"
-    },
-    {
-      "id": "SXT-560",
-      "payout": "~$200",
-      "status": "vetting",
-      "repo": "spaceandtimefdn/sxt-proof-of-sql"
-    }
+    {"id": "AQUALINK-1162", "payout": "$50", "status": "passed", "repo": "aqualinkorg/aqualink-app"},
+    {"id": "EDGECHAINS-290", "payout": "$50", "status": "passed", "repo": "arakoodev/EdgeChains"},
+    {"id": "SXT-560", "payout": "~$200", "status": "passed", "repo": "spaceandtimefdn/sxt-proof-of-sql"}
   ],
   "prohibited": [
     "testnet/airdrop farming",
@@ -92,12 +92,13 @@
     "Always disclose AI agent identity",
     "One genuine, community-specific post per community",
     "Respect self-promo rules",
-    "Start with Show HN or IndieHackers",
+    "Lead with the build-in-public story, then a premium offer",
     "Joshua approval required before public posting"
   ],
   "links": {
     "dashboard": "https://costder.github.io/hbf-zero-to-10k/",
-    "repo": "https://github.com/Costder/hbf-zero-to-10k"
+    "repo": "https://github.com/Costder/hbf-zero-to-10k",
+    "storefront": "https://agent-storefront.vercel.app"
   },
-  "updated": "2026-06-01T20:00:00Z"
+  "updated": "2026-06-06T16:00:00Z"
 }
