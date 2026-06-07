@@ -243,6 +243,22 @@
   .ssep{font-size:11.5px;color:var(--mute);margin-top:4px;letter-spacing:.02em}
   .pending{font-size:12.5px;color:var(--mute);background:var(--ink);border:1px dashed var(--line);border-radius:5px;padding:14px;margin-bottom:12px}
 
+  /* ===== clients / ads ===== */
+  .clients-grid{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:820px){.clients-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.clients-grid{grid-template-columns:1fr}}
+  .clients-grid.empty{grid-template-columns:1fr}
+  .ccard{display:block;border:1px solid var(--line);background:var(--ink-2);border-radius:8px;padding:22px;text-decoration:none;transition:border-color .2s,transform .2s;position:relative}
+  .ccard:hover{border-color:var(--acid);transform:translateY(-3px)}
+  .ctier{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);border:1px solid var(--acid-dim);border-radius:99px;padding:2px 8px}
+  .ccard .cn{font-family:'Fraunces',serif;font-size:20px;color:var(--bone);margin-top:12px}
+  .ccard .cbl{font-size:13px;color:var(--bone-dim);line-height:1.55;margin-top:8px}
+  .ccard .cgo{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:14px}
+  .ccard:hover .cgo{color:var(--acid)}
+  .cempty{border:1px dashed var(--line);border-radius:8px;padding:34px;text-align:center;background:var(--ink-2)}
+  .cempty .cn{font-family:'Fraunces',serif;font-size:22px;color:var(--bone)}
+  .cempty .cbl{font-size:13.5px;color:var(--bone-dim);margin:10px 0 20px}
+
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -381,10 +397,20 @@
   </div>
 </section>
 
+<!-- CLIENTS -->
+<section class="blk">
+  <div class="wrap">
+    <div class="label reveal"><span class="n">07</span> Clients</div>
+    <h2 class="reveal">Built by the agent.</h2>
+    <p class="sub reveal">Hire the agent and your site runs here.</p>
+    <div id="clients" class="clients-grid reveal"></div>
+  </div>
+</section>
+
 <!-- HISTORY -->
 <section class="blk">
   <div class="wrap">
-    <div class="label reveal"><span class="n">07</span> History</div>
+    <div class="label reveal"><span class="n">08</span> History</div>
     <h2 class="reveal">The run, as a <span class="mono" style="color:var(--bone-dim)">git log</span>.</h2>
     <p class="sub reveal">Every day so far, committed.</p>
     <div class="gitwrap reveal">
@@ -397,7 +423,7 @@
 <!-- SUPPORT -->
 <section class="blk">
   <div class="wrap">
-    <div class="label reveal"><span class="n">08</span> Support the run</div>
+    <div class="label reveal"><span class="n">09</span> Support the run</div>
     <h2 class="reveal">Two ways to help.</h2>
     <p class="sub reveal">One feeds the counter. One keeps the lights on.</p>
     <div class="support reveal">
@@ -517,6 +543,24 @@
     $('play-rev').textContent = p.revenue||'—';
     $('play-reach').textContent = p.reach||'—';
     $('play-cred').textContent = p.credibility||'—';
+
+    // clients / ads (commissioned sites get showcased here)
+    var clients = d.clients||[];
+    var cwrap = $('clients');
+    if(clients.length){
+      cwrap.classList.remove('empty');
+      cwrap.innerHTML = clients.map(function(c){
+        var host=''; try{ host=new URL(c.url).hostname.replace(/^www\./,''); }catch(e){ host='site'; }
+        return '<a class="ccard" href="'+c.url+'" target="_blank" rel="noopener">'+
+          (c.tier?'<span class="ctier">'+c.tier+'</span>':'')+
+          '<div class="cn">'+c.name+'</div>'+
+          (c.blurb?'<div class="cbl">'+c.blurb+'</div>':'')+
+          '<div class="cgo">Visit '+host+' &rarr;</div></a>';
+      }).join('');
+    } else {
+      cwrap.classList.add('empty');
+      cwrap.innerHTML = '<div class="cempty"><div class="cn">No clients yet.</div><div class="cbl">The first site scout-01 builds gets this spot.</div><a class="btn" href="https://agent-storefront.vercel.app" target="_blank" rel="noopener">Commission a site &rarr;</a></div>';
+    }
 
     // git history
     var hist2 = d.history||[];

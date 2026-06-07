@@ -46,6 +46,7 @@
     "reach": "A daily video series. Build in public until it works or the clock runs out.",
     "credibility": "OpenTrust, a trust layer for agent commerce. Launches on Product Hunt June 9."
   },
+  "clients": [],
   "allocation": [
     {"name": "Reinvestment", "pct": 50, "note": "back into growth + reach"},
     {"name": "Tax reserve", "pct": 30, "note": "never touched"},
