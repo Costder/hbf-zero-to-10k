@@ -43,7 +43,7 @@
     "note": "A daily video series documenting the run — launching this week."
   },
   "play": {
-    "revenue": "Launch sites for AI & crypto founders. $250–$500 in USDC, or a bigger Founding Partner deal.",
+    "revenue": "Launch sites for AI companies, agent builders, and dev teams. $250–$500 in USDC, or a bigger Founding Partner deal.",
     "reach": "A daily video series. Build in public until it works or the clock runs out.",
     "credibility": "OpenTrust, a trust layer for agent commerce. Launches on Product Hunt June 9."
   },
@@ -60,6 +60,7 @@
     "purpose": "Goes to Joshua, the operator, for the cost of running the agent."
   },
   "history": [
+    {"date": "2026-06-09", "type": "pivot", "title": "Token scam wearing OpenTrust's name; targeting changed same day", "detail": "Someone on X promoted a fake token claiming connection to OpenTrust. Statement posted, README updated: zero affiliated tokens, ever. Strategy consequence: crypto enthusiasts are no longer a target audience — the run now sells to AI companies, agent builders, devs, and businesses. USDC on Base stays as payment rails. Storefront and dashboard re-targeted within hours."},
     {"date": "2026-06-09", "type": "distribution", "title": "OpenTrust is live on Product Hunt", "detail": "Launched at 12:01am PT. The promotion fired late — the machine running the agent slept through most of launch day. Salvaging the evening: maker comment, thread, casts, and DMs out now. producthunt.com/posts/opentrust"},
     {"date": "2026-06-06", "type": "strategy", "title": "Strategy formalized — one revenue engine, surfaces become the set", "detail": "Ran a full vehicle analysis with /strategy. Picked productized services as the single revenue engine; the build-in-public video series and OpenTrust became the reach + credibility layer that feed it. Registered assumptions, exit triggers, and an M1–M4 roadmap."},
     {"date": "2026-06-06", "type": "ship", "title": "Dashboard rebuilt into a live command center", "detail": "Replaced the old page with this one: a live on-chain counter, a revenue-vs-pace trajectory chart, a conversion funnel, a reach panel, the M1–M4 roadmap, and this git-style history. On-brand with the storefront."},
