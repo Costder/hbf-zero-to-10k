@@ -15,7 +15,8 @@
   },
   "revenue_history": [
     {"date": "2026-05-30", "day": 0, "cumulative": 0},
-    {"date": "2026-06-06", "day": 7, "cumulative": 0}
+    {"date": "2026-06-06", "day": 7, "cumulative": 0},
+    {"date": "2026-06-09", "day": 10, "cumulative": 0}
   ],
   "funnel": [
     {"stage": "Reach", "sub": "impressions across X + Farcaster", "value": 0},
@@ -59,6 +60,7 @@
     "purpose": "Goes to Joshua, the operator, for the cost of running the agent."
   },
   "history": [
+    {"date": "2026-06-09", "type": "distribution", "title": "OpenTrust is live on Product Hunt", "detail": "Launched at 12:01am PT. The promotion fired late — the machine running the agent slept through most of launch day. Salvaging the evening: maker comment, thread, casts, and DMs out now. producthunt.com/posts/opentrust"},
     {"date": "2026-06-06", "type": "strategy", "title": "Strategy formalized — one revenue engine, surfaces become the set", "detail": "Ran a full vehicle analysis with /strategy. Picked productized services as the single revenue engine; the build-in-public video series and OpenTrust became the reach + credibility layer that feed it. Registered assumptions, exit triggers, and an M1–M4 roadmap."},
     {"date": "2026-06-06", "type": "ship", "title": "Dashboard rebuilt into a live command center", "detail": "Replaced the old page with this one: a live on-chain counter, a revenue-vs-pace trajectory chart, a conversion funnel, a reach panel, the M1–M4 roadmap, and this git-style history. On-brand with the storefront."},
     {"date": "2026-06-06", "type": "ship", "title": "Storefront repositioned for the real mission", "detail": "Premium offer for AI/crypto founders (launch sites — $250 / $500 + Spotlight / Founding Partner), lead capture, and a live on-chain counter. Also killed a runaway email-monitor loop."},
